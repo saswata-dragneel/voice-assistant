@@ -129,6 +129,14 @@ if __name__ =="__main__":
             codePath = "D:\\PYCHARM\\PyCharm Community Edition 2020.1.2\\bin\\pycharm64.exe"
             os.startfile(codePath)
 
+        elif 'open paint' in query:
+            codePath = "C:\\WINDOWS\\system32\\mspaint.exe"
+            os.startfile(codePath)
+
+        elif 'open snipping tool' in query:
+            codePath = "C:\\WINDOWS\\system32\\SnippingTool.exe"
+            os.startfile(codePath)
+
         elif 'open d drive' in query:
             codePath = "D:\\"
             os.startfile(codePath)

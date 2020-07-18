@@ -1,4 +1,4 @@
-import pyttsx3, datetime, wikipedia, webbrowser, os, smtplib
+import pyttsx3, datetime, wikipedia, webbrowser, os, smtplib, random
 
 import speech_recognition as sr
 
@@ -77,23 +77,45 @@ if __name__ =="__main__":
             speak(results)
 
         elif 'open youtube' in query:
-            webbrowser.open("youtube.com")
+            speak("Youtube opening, what do want to search ?")
+            command = takeCommand()
+            webbrowser.open("https://www.youtube.com/results?search_query=" + command)
+            # search URL for youtube is https://www.youtube.com/results?search_query=
+            # you can search anything in youtube now
 
         elif 'open google' in query:
-            webbrowser.open("google.com")
+            speak("google opening, what do want to search ?")
+            command = takeCommand()
+            webbrowser.open("https://google.com/?#q="+command)
+            # search URL for google is https://google.com/?#q=
+            # you can search anything in google now
 
         elif 'open gmail' in query:
             webbrowser.open("gmail.com")
+            speak("gmail opened")
+
+        elif 'search in gmail' in query:
+            speak("What do you want to search ?")
+            command = takeCommand()
+            webbrowser.open("https://mail.google.com/mail/u/0/#search/" + command)
+            # search URL for gmail is https://mail.google.com/mail/u/0/#search/
+            # you can search any email in gmail now
+
 
         elif 'open stackoverflow' in query:
-            webbrowser.open("stackoverflow.com")
+            speak("stackoverflow opening, what do want to search ?")
+            command = takeCommand()
+            webbrowser.open("https://stackoverflow.com/search?q="+command)
+            # search URL for stackoverflow is "https://stackoverflow.com/search?q="
+            # you can search anything in stackoverflow now
 
         elif 'play music' in query:
             music_dir = 'D:\\Selfless_gaming\\music'
             songs = os.listdir(music_dir)
+            random_song = random.choice(songs)
             #above line lists all songs under the given directory
-            print(songs)
-            os.startfile(os.path.join(music_dir,songs[0]))
+            print(random_song)
+            os.startfile(os.path.join(music_dir,random_song))
 
         elif 'the time' in query:
             strTime = datetime.datetime.now().strftime("%H:%M:%S")

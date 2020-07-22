@@ -7,8 +7,8 @@ engine = pyttsx3.init('sapi5')
 voices = engine.getProperty('voices')
 
 email_dict = {
-    "pubali": "pubali198@gmail.com",
-    "selfless": "selfless.gaming69@gmail.com"
+    "email id 1": "----",  #<email id 1>
+    "email id 2": "----"   #<email id 2>
 }
 
 engine.setProperty('voices',voices[0].id)
@@ -57,8 +57,8 @@ def sendEmail(to, content):
     v = open("password.txt", 'r')
     password = v.readline()
     v.close()
-    server.login('saswatadragneel@gmail.com',password)
-    server.sendmail('saswatadragneel@gmail.com',to,content)
+    server.login('<sender>@gmail.com',password)
+    server.sendmail('<sender>@gmail.com',to,content)
     server.close()
 
 if __name__ =="__main__":
@@ -110,7 +110,7 @@ if __name__ =="__main__":
             # you can search anything in stackoverflow now
 
         elif 'play music' in query:
-            music_dir = 'D:\\Selfless_gaming\\music'
+            music_dir = '<music directory path>'
             songs = os.listdir(music_dir)
             random_song = random.choice(songs)
             #above line lists all songs under the given directory
@@ -122,19 +122,19 @@ if __name__ =="__main__":
             speak(f"The current time is {strTime}")
 
         elif 'open virtual studio code' in query:
-            codePath = "C:\\Users\\KIIT\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe"
+            codePath = "<VS Code path>"
             os.startfile(codePath)
 
         elif 'open pycharm' in query:
-            codePath = "D:\\PYCHARM\\PyCharm Community Edition 2020.1.2\\bin\\pycharm64.exe"
+            codePath = "<pycharm path>"
             os.startfile(codePath)
 
         elif 'open paint' in query:
-            codePath = "C:\\WINDOWS\\system32\\mspaint.exe"
+            codePath = "<paint path>"
             os.startfile(codePath)
 
         elif 'open snipping tool' in query:
-            codePath = "C:\\WINDOWS\\system32\\SnippingTool.exe"
+            codePath = "<snipping path>"
             os.startfile(codePath)
 
         elif 'open d drive' in query:
@@ -146,21 +146,21 @@ if __name__ =="__main__":
             os.startfile(codePath)
 
         elif 'email to' in query:
-            if 'pubali' in query:
+            if '<email id keyword 1>' in query:
                 try:
                     speak("What should I write")
                     content = takeCommand()
-                    to = email_dict["pubali"]
+                    to = email_dict["email id 1"]
                     sendEmail(to, content)
                     speak("Your Email has been sent")
                 except Exception as e:
                     print(e)
                     speak("Sorry. I was unable to email pubali")
-            elif 'selfless' in query:
+            elif '<email id keyword 2>' in query:
                 try:
                     speak("What should I write")
                     content = takeCommand()
-                    to = email_dict["selfless"]
+                    to = email_dict["email id 2"]
                     sendEmail(to, content)
                     speak("Your Email has been sent")
                 except Exception as e:
